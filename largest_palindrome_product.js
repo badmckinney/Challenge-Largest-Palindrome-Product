@@ -15,8 +15,10 @@ module.exports = function (digits) {
     string += "9";
   };
 
-  factor_0 = parseInt(string);
-  factor_1 = parseInt(string);
+  const initialValue = parseInt(string);
+  factor_0 = initialValue;
+  factor_1 = initialValue;
+
 
   const checkForPalindrome = (number) => {
     if (number === parseInt(number.toString().split('').reverse().join(''))) {
@@ -26,15 +28,9 @@ module.exports = function (digits) {
     }
   }
 
-  for (let x = factor_0; x > 1; x--) {
-    // if (x < 994 && y > 800) {
-    //   console.log(x, y);
-    // }
-    for (let y = factor_1; y > 1; y--) {
+  for (let x = initialValue; x > 1; x--) {
+    for (let y = initialValue; y > 1; y--) {
       let number = x * y;
-      // if (x === 993 && y === 913) {
-      //   console.log(number, checkForPalindrome(number));
-      // }
       if (checkForPalindrome(number) && number > palindromeNumber) {
         palindromeNumber = number;
         factor_0 = x;
